@@ -9,6 +9,7 @@ const int itmax = 30;
 const double epsilon = 1.0e-12;
 
 inline double f(double x){ return (x-1)*std::pow((x-3), 6); }
+inline double df(double x){ return std::pow((x-3), 5)*(7*x-9); } //calculated by hand
 
 inline void bisection_method(double a, double b){
     int k = 0;
@@ -63,8 +64,9 @@ inline void secant_method(double a, double b){
 
     do{
         k = k + 1;
-        if(f(b)-f(a) == 0 || f(b)-f(a) < epsilon){
+        if(f(b)-f(a) == 0){
             std::cerr << "Division by zero in secant method.";
+            exit(-1);
         }
         c = b - f(b)*((b-a)/(f(b)-f(a)));
 
@@ -91,10 +93,35 @@ inline void secant_method(double a, double b){
 
 inline void newton_method(double x){
     int k = 0;
+    double delta_abs;
+
+    std::ofstream newton("../data/newton.csv");
+    if(!newton.is_open()){
+        std::cerr << "Cannot open newton file.\n";
+    }
 
     do{
         k = k + 1;
-        
+        if(df(x) == 0){
+            std::cerr << "Division by zero in newton method.";
+            exit(-1);
+        }
+        double x_1 = x - (f(x)/df(x));
+
+        delta_abs = std::abs(x - x_1);
+        double delta = x_1-x;
+        double residual = f(x_1);
+        x = x_1;
+
+        newton << k <<", " << x << ", " << delta << ", " << delta_abs << ", " << residual << "\n";
 
     }while(k < itmax && delta_abs > epsilon);
+
+    if(k == itmax){
+        std::cout << "Newton method terminated by itmax.\n";
+    }else{
+        std::cout << "Newton method terminated by epsilon criterion.\n";
+    }
+
+    newton.close();
 }

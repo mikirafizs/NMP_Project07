@@ -10,5 +10,6 @@ const double x_bsec = 0.5;
 int main(){
     bisection_method(x_a, x_bis);
     secant_method(x_a, x_bsec);
+    newton_method(x_a);
     return 0;
 }
