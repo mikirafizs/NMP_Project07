@@ -44,4 +44,6 @@ and make sure the `data/` directory exists.
 
 From the project root:
 
-    python3 plots/plots.py
+    python3 plots/plots_x=1.py
+
+    python3 plots/plots_x=3.py
