@@ -13,7 +13,7 @@ This project compares the bisection, secant and Newton-Raphson methods for findi
 - 'report/' - report of a project (PDF)
 
 ## Requirements:
-- g++ with C++20 support (tested with GCC 15)
+- g++ with C++17 support (tested with GCC 15)
 - Ubuntu/Debian: `sudo apt install liblapack-dev`
 - Python 3.8+ (tested with 3.14)
 - matplotlib: `sudo apt install python3-matplotlib` or `pip install matplotlib`
