@@ -14,7 +14,6 @@ This project compares the bisection, secant and Newton-Raphson methods for findi
 
 ## Requirements:
 - g++ with C++17 support (tested with GCC 15)
-- Ubuntu/Debian: `sudo apt install liblapack-dev`
 - Python 3.8+ (tested with 3.14)
 - matplotlib: `sudo apt install python3-matplotlib` or `pip install matplotlib`
 - numpy: `sudo apt install python3-numpy` or `pip install numpy`
@@ -34,7 +33,7 @@ This project compares the bisection, secant and Newton-Raphson methods for findi
 
 From the `src/` directory:
 
-    g++ -std=c++17 -O2 -Wall -Wextra main.cpp -o main -llapacke
+    g++ -std=c++17 -O2 -Wall -Wextra main.cpp -o main
 
 
 The program writes the solution files to `../data/`, so run it from `src/`

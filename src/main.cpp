@@ -1,5 +1,5 @@
 #include "root.hpp"
-#include <iostream>
+
 
 
 const double x_a = 0.1;
